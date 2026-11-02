@@ -25,9 +25,9 @@ namespace Program2
             int kostnadPerPerson = resa + mat;
 
             // Räknar ut kostnaden för hela gruppen.
-
             int totalKostnad = kostnadPerPerson * antal;
 
+            //Grupprabatt
             if (antal > 4)
             {
                 kostnadPerPerson -= 100 / antal;
