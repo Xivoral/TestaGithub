@@ -16,7 +16,9 @@ namespace Program2
                 Console.WriteLine("=== UTFLYKTSKALKYLATOR ===");
 
                 Console.Write("Hur många personer ska följa med? ");
-                int antal = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Skriver du fel, väljs automatiskt 1 person.");
+                //Antal blir nu alltid en int.
+                int antal = int.TryParse(Console.ReadLine(), out antal) ? antal : 1;
 
                 //Ingen som ska med, avbryter spelet.
                 if (antal == 0)
@@ -26,7 +28,7 @@ namespace Program2
                     break;
                 }
                 // Minus easter egg.
-                if (antal < 0)
+                else if (antal < 0)
                 {
                     Console.WriteLine("Jaså... du vill leka med djävulen? :,)");
                     Console.WriteLine("Slå en tärning för ditt liv, du måste få en sexa");
@@ -37,11 +39,17 @@ namespace Program2
                     Console.WriteLine("slut. (Hellvetes ending)");
                     break;
                 }
+                else if ((0 < antal) && (antal < 5))
+                {
+                    Console.WriteLine("Du valde " + antal + " personer till att följa med på utflykten.");
+                }
+                else
+                {
+                    Console.WriteLine("Sweet! Du får en rabatt :)");
+                }
 
-                //Menykontroll för antal
 
-
-                Console.Write("Vad kostar resan per person? ");
+                    Console.Write("Vad kostar resan per person? ");
                 int resa = Convert.ToInt32(Console.ReadLine());
 
                 Console.Write("Vad kostar maten per person? ");
