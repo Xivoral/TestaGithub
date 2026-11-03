@@ -23,6 +23,7 @@ namespace Program2
                 //Ingen som ska med, avbryter spelet.
                 if (antal == 0)
                 {
+                    Console.WriteLine();
                     Console.WriteLine("Jaså... ingen ska med.");
                     Console.WriteLine("slut. (Tråkig ending)");
                     break;
@@ -61,17 +62,27 @@ namespace Program2
                 // Räknar ut kostnaden för hela gruppen.
                 int totalKostnad = kostnadPerPerson * antal;
 
+                Console.WriteLine("");
+
                 //Grupprabatt
                 if (antal > 4)
                 {
                     kostnadPerPerson -= 100 / antal;
                     totalKostnad -= 100;
+                    Console.WriteLine();
+                    Console.WriteLine("Kostnad per person: " + kostnadPerPerson + " kr, mycket billigare tack vare din rabatt...");
+                    Console.WriteLine("Total kostnad: " + totalKostnad + " kr tack vare din läckra rabatt :)");
+                    Console.WriteLine("slut. (Rabatt ending) OBS! Det finns flera endings...");
+                    break;
                 }
-
-                Console.WriteLine();
-                Console.WriteLine("Kostnad per person: " + kostnadPerPerson + " kr");
-                Console.WriteLine("Total kostnad: " + totalKostnad + " kr");
-                Console.WriteLine("slut. (Vanlig ending) OBS! Det finns flera endings...");
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Kostnad per person: " + kostnadPerPerson + " kr");
+                    Console.WriteLine("Total kostnad: " + totalKostnad + " kr");
+                    Console.WriteLine("slut. (Vanlig ending) OBS! Det finns flera endings...");
+                    break;
+                }
                 break;
             }
             
